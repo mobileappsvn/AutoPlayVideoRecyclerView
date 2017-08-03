@@ -53,7 +53,7 @@ dependencies {
 
 # Usage
 
-Add `AAH_VideoImage` to your xml file for single list item `single_card.xml`:
+Add `VideoImage` to your xml file for single list item `single_card.xml`:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -75,7 +75,7 @@ Add `AAH_VideoImage` to your xml file for single list item `single_card.xml`:
                 android:layout_width="300dp"
                 android:layout_height="150dp">
 
-                <com.robert.autoplayvideo.AAH_VideoImage
+                <com.robert.autoplayvideo.VideoImage
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 

@@ -3,18 +3,18 @@ package com.robert.autoplayvideosample.model;
 /**
  * Created by robert on 17/08/03.
  */
-public class MyModel {
+public class VideoModel {
     private final String image_url;
     private String video_url;
     private final String name;
 
-    public MyModel(String video_url, String image_url, String name) {
+    public VideoModel(String video_url, String image_url, String name) {
         this.video_url = video_url;
         this.image_url = image_url;
         this.name = name;
     }
 
-    public MyModel(String image_url, String name) {
+    public VideoModel(String image_url, String name) {
         this.image_url = image_url;
         this.name = name;
     }

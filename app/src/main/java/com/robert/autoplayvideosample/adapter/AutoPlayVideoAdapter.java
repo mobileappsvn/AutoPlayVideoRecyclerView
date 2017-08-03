@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.robert.autoplayvideosample.model.MyModel;
+import com.robert.autoplayvideosample.model.VideoModel;
 import com.robert.autoplayvideosample.R;
 import com.robert.autoplayvideo.CustomViewHolder;
 import com.robert.autoplayvideo.VideosAdapter;
@@ -22,10 +22,10 @@ import butterknife.ButterKnife;
 /**
  * Created by robert on 17/08/03.
  */
-public class MyVideosAdapter extends VideosAdapter {
-    private String TAG = "MyVideosAdapter";
+public class AutoPlayVideoAdapter extends VideosAdapter {
+    private String TAG = "AutoPlayVideoAdapter";
 
-    private final List<MyModel> list;
+    private final List<VideoModel> list;
     private final Picasso picasso;
 
     public class MyViewHolder extends CustomViewHolder {
@@ -62,7 +62,7 @@ public class MyVideosAdapter extends VideosAdapter {
             img_playback.setImageResource(R.drawable.ic_play);
         }
     }
-    public MyVideosAdapter(List<MyModel> list_urls, Picasso p) {
+    public AutoPlayVideoAdapter(List<VideoModel> list_urls, Picasso p) {
         this.list = list_urls;
         this.picasso = p;
     }
