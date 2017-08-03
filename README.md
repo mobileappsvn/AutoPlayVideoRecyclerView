@@ -18,7 +18,7 @@ And it has following features:
 
 
 # Demo
-[![Watch the video](https://lh3.googleusercontent.com/-SAOt_ghq-eQ/AAAAAAAAAAI/AAAAAAAAAAs/NdOSp-xNz3s/s36-p-k-rw-no/photo.jpg)](https://youtu.be/JaE3loNC3mg)
+[![Watch the video](http://soicau.com.vn/robert/autoplayvideo.png)](https://youtu.be/JaE3loNC3mg)
 # Download
 **Gradle**
 
