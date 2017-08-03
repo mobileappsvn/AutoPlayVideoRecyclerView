@@ -1,1 +1,1 @@
-include ':app', ':autoplayvideos'
+include ':app', ':autoplay-video-library'
