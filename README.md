@@ -285,22 +285,14 @@ Set looping on videos by adding below code in `onBindViewHolder`:
 holder.setLooping(true); //optional - true by default
 ```
 
-# Use Cloudinary (Optional)
-
-It is recommended to use <a href="https://cloudinary.com" target="_blank">Cloudinary.com</a> to host your videos as it provides easy <a href="http://cloudinary.com/documentation/video_manipulation_and_delivery#generating_video_thumbnails" target="_blank">thumbnail-generation</a> and <a href="http://cloudinary.com/documentation/video_manipulation_and_delivery#resizing_and_cropping_videos" target="_blank">resizing/cropping videos</a> on-the-fly.
-
-
 # Changelog
 * <a href="/CHANGELOG.md" target="_blank">Changelog</a>
-
-# Our other libraries
-* <a href="https://github.com/Krupen/FabulousFilter" target="_blank">FabulousFilter</a>
 
 # Apps by developer
 [![TIAMO](https://lh3.googleusercontent.com/Uw7oLRg-Iub-C6T3fg-CRyC7hV3doQZZd6OOsW__Ntpf_8BScMY8d2HT2BPQlapTGaQ=w300-rw)](https://play.google.com/store/apps/details?id=com.vnm.tiamo)  [![Zap Courier](https://lh3.googleusercontent.com/2bEjpmHNjcqo2FEtTNjETsYu8JeIjfHI7oxiZWUSXqg7ENSfUo6rhkUckIAv3DaFQzM=w300-rw)](https://play.google.com/store/apps/details?id=delivery.zap.courier)
 
 # License
-Copyright 2017 Krupen Ghetiya
+Copyright 2017 Robert Hoang
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
