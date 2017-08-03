@@ -99,7 +99,7 @@ Add `AAH_VideoImage` to your xml file for single list item `single_card.xml`:
 </LinearLayout>
 ```
 
-Add `AAH_CustomRecyclerView` to your Activity layout xml `MainActivity.xml`:
+Add `CustomRecyclerView` to your Activity layout xml `MainActivity.xml`:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -107,7 +107,7 @@ Add `AAH_CustomRecyclerView` to your Activity layout xml `MainActivity.xml`:
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.robert.autoplayvideo.AAH_CustomRecyclerView
+    <com.robert.autoplayvideo.CustomRecyclerView
         android:id="@+id/rv_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -117,16 +117,16 @@ Add `AAH_CustomRecyclerView` to your Activity layout xml `MainActivity.xml`:
 
 Set Adapter with following specifics:
 
-1. Adapter should extend `AAH_VideosAdapter`.
-2. ViewHolder should extend `AAH_CustomViewHolder`.
+1. Adapter should extend `VideosAdapter`.
+2. ViewHolder should extend `CustomViewHolder`.
 3. Set thumbnail image url and video url in `onBindViewHolder` method.
 ```
-public class MyVideosAdapter extends AAH_VideosAdapter {
+public class MyVideosAdapter extends VideosAdapter {
 
     private List<MyModel> list;
     Picasso picasso;
 
-    public class MyViewHolder extends AAH_CustomViewHolder {
+    public class MyViewHolder extends CustomViewHolder {
         final TextView tv;
 	final ImageView img_vol,img_playback;
         boolean isMuted; //to mute/un-mute video (optional)
@@ -145,14 +145,14 @@ public class MyVideosAdapter extends AAH_VideosAdapter {
     }
 
     @Override
-    public AAH_CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.single_card, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(AAH_CustomViewHolder holder, int position) {
+    public void onBindViewHolder(CustomViewHolder holder, int position) {
         ((MyViewHolder) holder).tv.setText(list.get(position).getName());
 
         //todo
@@ -160,7 +160,7 @@ public class MyVideosAdapter extends AAH_VideosAdapter {
         holder.setVideoUrl(list.get(position).getVideo_url());
         //load image/thumbnail into imageview
         if (list.get(position).getImage_url() != null && !list.get(position).getImage_url().isEmpty())
-            picasso.load(holder.getImageUrl()).config(Bitmap.Config.RGB_565).into(holder.getAAH_ImageView());
+            picasso.load(holder.getImageUrl()).config(Bitmap.Config.RGB_565).into(holder.getImageView());
     }
     
     @Override
@@ -216,7 +216,7 @@ recyclerView.setCheckForMp4(false); // true by default
 
 ### Get callbacks when videos starts and pauses
 
-You can override the below methods of `AAH_CustomViewHolder` to get callback when video starts to play or pauses.
+You can override the below methods of `CustomViewHolder` to get callback when video starts to play or pauses.
 ```
 	@Override
         public void videoStarted() {
