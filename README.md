@@ -18,8 +18,7 @@ And it has following features:
 
 
 # Demo
-![autoplayvideo_demo](http://soicau.com.vn/robert/autoplayvideo.mp4)
-
+[![Watch the video](http://soicau.com.vn/robert/autoplayvideo.mp4)
 # Download
 **Gradle**
 
