@@ -18,7 +18,8 @@ And it has following features:
 
 
 # Demo
-[![Watch the video](http://soicau.com.vn/robert/autoplayvideo.mp4)
+[![Watch the video](https://lh3.googleusercontent.com/-SAOt_ghq-eQ/AAAAAAAAAAI/AAAAAAAAAAs/NdOSp-xNz3s/s36-p-k-rw-no/photo.jpg)](http://soicau.com.vn/robert/autoplayvideo.mp4)
+[![Watch the video]()
 # Download
 **Gradle**
 
