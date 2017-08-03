@@ -1,6 +1,7 @@
-package com.allattentionhere.autoplayvideossample.Adapter;
+package com.robert.autoplayvideosample.adapter;
 
 import android.graphics.Bitmap;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,25 +9,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.allattentionhere.autoplayvideossample.Model.MyModel;
-import com.allattentionhere.autoplayvideossample.R;
-import com.allattentionhere.autoplayvideos.AAH_CustomViewHolder;
-import com.allattentionhere.autoplayvideos.AAH_VideosAdapter;
+import com.robert.autoplayvideosample.model.MyModel;
+import com.robert.autoplayvideosample.R;
+import com.robert.autoplayvideo.CustomViewHolder;
+import com.robert.autoplayvideo.VideosAdapter;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import butterknife.ButterKnife;
 
-
-public class MyVideosAdapter extends AAH_VideosAdapter {
+/**
+ * Created by robert on 17/08/03.
+ */
+public class MyVideosAdapter extends VideosAdapter {
+    private String TAG = "MyVideosAdapter";
 
     private final List<MyModel> list;
     private final Picasso picasso;
 
-    public class MyViewHolder extends AAH_CustomViewHolder {
-        final TextView tv;
+    public class MyViewHolder extends CustomViewHolder {
+        final TextView tv, userName;
         final ImageView img_vol, img_playback;
+        final AppCompatImageView userIcon;
         //to mute/un-mute video (optional)
         boolean isMuted;
         public MyViewHolder(View x) {
@@ -34,6 +39,8 @@ public class MyVideosAdapter extends AAH_VideosAdapter {
             tv = ButterKnife.findById(x, R.id.tv);
             img_vol = ButterKnife.findById(x, R.id.img_vol);
             img_playback = ButterKnife.findById(x, R.id.img_playback);
+            userIcon = ButterKnife.findById(x, R.id.fb_user_icon);
+            userName = ButterKnife.findById(x, R.id.fb_user_name);
         }
 
         //override this method to get callback when video starts to play
@@ -61,16 +68,16 @@ public class MyVideosAdapter extends AAH_VideosAdapter {
     }
 
     @Override
-    public AAH_CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.single_card, parent, false);
+    public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_card, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(final AAH_CustomViewHolder holder, int position) {
-        ((MyViewHolder) holder).tv.setText(list.get(position).getName());
-
+    public void onBindViewHolder(final CustomViewHolder holder, int position) {
+        ((MyViewHolder) holder).userName.setText(list.get(position).getName());
+        ((MyViewHolder) holder).tv.setText(String.format("%s・%s", (position + 5) + " minutes from now",list.get(position).getName().toUpperCase()));
+        picasso.load(R.mipmap.ic_launcher).config(Bitmap.Config.RGB_565).into(((MyViewHolder) holder).userIcon);
         //todo
         holder.setImageUrl(list.get(position).getImage_url());
         holder.setVideoUrl(list.get(position).getVideo_url());
@@ -78,6 +85,8 @@ public class MyVideosAdapter extends AAH_VideosAdapter {
         //load image into imageview
         if (list.get(position).getImage_url() != null && !list.get(position).getImage_url().isEmpty()) {
             picasso.load(holder.getImageUrl()).config(Bitmap.Config.RGB_565).into(holder.getAAH_ImageView());
+
+            Log.e(TAG, "--->ImageUrl=" + holder.getImageUrl());
         }
 
         holder.setLooping(true); //optional - true by default

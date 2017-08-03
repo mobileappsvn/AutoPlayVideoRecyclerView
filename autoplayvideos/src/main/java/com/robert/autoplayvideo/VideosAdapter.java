@@ -1,27 +1,27 @@
-package com.allattentionhere.autoplayvideos;
+package com.robert.autoplayvideo;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+/**
+ * Created by robert on 17/08/03.
+ */
+public class VideosAdapter extends RecyclerView.Adapter<CustomViewHolder> {
 
-public class AAH_VideosAdapter extends RecyclerView.Adapter<AAH_CustomViewHolder> {
-
-    public AAH_VideosAdapter() {
+    public VideosAdapter() {
     }
 
     @Override
-    public AAH_CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AAH_CustomViewHolder(new View(parent.getContext()));
+    public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new CustomViewHolder(new View(parent.getContext()));
     }
 
     @Override
-    public void onBindViewHolder(AAH_CustomViewHolder holder, int position) {
+    public void onBindViewHolder(CustomViewHolder holder, int position) {
     }
 
     @Override
-    public void onViewDetachedFromWindow(final AAH_CustomViewHolder holder) {
+    public void onViewDetachedFromWindow(final CustomViewHolder holder) {
         if (holder != null) {
             holder.getAah_vi().getCustomVideoView().clearAll();
             holder.getAah_vi().getCustomVideoView().invalidate();
@@ -30,7 +30,7 @@ public class AAH_VideosAdapter extends RecyclerView.Adapter<AAH_CustomViewHolder
     }
 
     @Override
-    public void onViewRecycled(AAH_CustomViewHolder holder) {
+    public void onViewRecycled(CustomViewHolder holder) {
         if (holder != null) {
             holder.getAah_vi().getCustomVideoView().clearAll();
             holder.getAah_vi().getCustomVideoView().invalidate();

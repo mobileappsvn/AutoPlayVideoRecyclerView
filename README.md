@@ -1,10 +1,4 @@
-# AutoplayVideos
-[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg)](https://android-arsenal.com/api?level=16) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AutoPlay%20Videos-2CB3E5.svg)](https://android-arsenal.com/details/1/5372) [![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23249-2CB3E5.svg)](http://androidweekly.net/issues/issue-249) [![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23136-2CB3E5.svg)](https://www.androiddevdigest.com/digest136/) 
-
-### Show some :heart: and star the repo to support the project
-[![GitHub stars](https://img.shields.io/github/stars/Krupen/AutoplayVideos.svg?style=social)](https://github.com/Krupen/AutoplayVideos/stargazers) [![GitHub forks](https://img.shields.io/github/forks/Krupen/AutoplayVideos.svg?style=social)](https://github.com/Krupen/AutoplayVideos/network) [![GitHub watchers](https://img.shields.io/github/watchers/Krupen/AutoplayVideos.svg?style=social)](https://github.com/Krupen/AutoplayVideos/watchers) [![GitHub followers](https://img.shields.io/github/followers/Krupen.svg?style=social)](https://github.com/Krupen/followers)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/KrupenGhetiya.svg?style=social&label=Follow)](https://twitter.com/krupenghetiya)
-
+# AutoplayVideo
 
 This library is created with the purpose to implement recyclerview with videos easily.
 
@@ -24,7 +18,7 @@ And it has following features:
 
 
 # Demo
-![autoplayvideos_demo](https://raw.githubusercontent.com/Krupen/AutoplayVideos/master/AutoPlayVideos%20Demo.gif)
+![autoplayvideo_demo](http://soicau.com.vn/robert/autoplayvideo.mp4)
 
 # Download
 **Gradle**
@@ -43,7 +37,7 @@ allprojects {
 
 ``` groovy
 dependencies {
-	 compile 'com.allattentionhere:autoplayvideos:0.1.2'
+	 compile 'com.robert.autoplayvideo:0.1.2'
 }
 ```
 
@@ -51,8 +45,8 @@ dependencies {
 **Or Maven**
 ``` groovy
 <dependency>
-  <groupId>com.allattentionhere</groupId>
-  <artifactId>autoplayvideos</artifactId>
+  <groupId>com.robert</groupId>
+  <artifactId>autoplayvideo</artifactId>
   <version>0.1.2</version>
   <type>pom</type>
 </dependency>
@@ -82,7 +76,7 @@ Add `AAH_VideoImage` to your xml file for single list item `single_card.xml`:
                 android:layout_width="300dp"
                 android:layout_height="150dp">
 
-                <com.allattentionhere.autoplayvideos.AAH_VideoImage
+                <com.robert.autoplayvideo.AAH_VideoImage
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
@@ -114,7 +108,7 @@ Add `AAH_CustomRecyclerView` to your Activity layout xml `MainActivity.xml`:
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.allattentionhere.autoplayvideos.AAH_CustomRecyclerView
+    <com.robert.autoplayvideo.AAH_CustomRecyclerView
         android:id="@+id/rv_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -303,7 +297,7 @@ It is recommended to use <a href="https://cloudinary.com" target="_blank">Cloudi
 * <a href="https://github.com/Krupen/FabulousFilter" target="_blank">FabulousFilter</a>
 
 # Apps by developer
-[![Price Stalker](https://github.com/Krupen/AutoplayVideos/blob/master/pricestalker.png?raw=true)](https://play.google.com/store/apps/details?id=com.allattentionhere.pricestalker)  [![Show Card Game](https://github.com/Krupen/AutoplayVideos/blob/master/show.png?raw=true)](https://play.google.com/store/apps/details?id=com.allattentionhere.show)  [![Safio chat](https://github.com/Krupen/AutoplayVideos/blob/master/safiochat.png?raw=true)](https://play.google.com/store/apps/details?id=com.allattentionhere.safio)
+[![TIAMO](https://lh3.googleusercontent.com/Uw7oLRg-Iub-C6T3fg-CRyC7hV3doQZZd6OOsW__Ntpf_8BScMY8d2HT2BPQlapTGaQ=w300-rw)](https://play.google.com/store/apps/details?id=com.vnm.tiamo)  [![Zap Courier](https://lh3.googleusercontent.com/2bEjpmHNjcqo2FEtTNjETsYu8JeIjfHI7oxiZWUSXqg7ENSfUo6rhkUckIAv3DaFQzM=w300-rw)](https://play.google.com/store/apps/details?id=delivery.zap.courier)
 
 # License
 Copyright 2017 Krupen Ghetiya

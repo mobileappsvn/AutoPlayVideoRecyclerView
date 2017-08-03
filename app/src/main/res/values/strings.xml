@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Auto Play Videos</string>
+    <string name="app_name">Auto Play Video</string>
+    <string name="fb_button_like">Like</string>
+    <string name="fb_button_comment">Comment</string>
+    <string name="fb_button_share">Share</string>
 </resources>

@@ -1,9 +1,8 @@
-package com.allattentionhere.autoplayvideossample.Model;
+package com.robert.autoplayvideosample.model;
 
 /**
- * Created by krupenghetiya on 03/02/17.
+ * Created by robert on 17/08/03.
  */
-
 public class MyModel {
     private final String image_url;
     private String video_url;

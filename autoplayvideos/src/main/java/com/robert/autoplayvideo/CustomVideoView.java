@@ -1,4 +1,4 @@
-package com.allattentionhere.autoplayvideos;
+package com.robert.autoplayvideo;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,10 +14,10 @@ import android.view.TextureView;
 import java.io.IOException;
 import java.util.concurrent.Callable;
 
-import static android.content.ContentValues.TAG;
-
-
-public class AAH_CustomVideoView extends TextureView implements TextureView.SurfaceTextureListener {
+/**
+ * Created by robert on 17/08/03.
+ */
+public class CustomVideoView extends TextureView implements TextureView.SurfaceTextureListener {
     private MediaPlayer mMediaPlayer;
     private Uri mSource;
     //    private MediaPlayer.OnCompletionListener mCompletionListener;
@@ -30,15 +30,15 @@ public class AAH_CustomVideoView extends TextureView implements TextureView.Surf
         this.showThumb = showThumb;
     }
 
-    public AAH_CustomVideoView(Context context) {
+    public CustomVideoView(Context context) {
         this(context, null, 0);
     }
 
-    public AAH_CustomVideoView(Context context, AttributeSet attrs) {
+    public CustomVideoView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public AAH_CustomVideoView(Context context, AttributeSet attrs, int defStyle) {
+    public CustomVideoView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

@@ -1,4 +1,4 @@
-package com.allattentionhere.autoplayvideos;
+package com.robert.autoplayvideo;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -11,20 +11,19 @@ import java.util.concurrent.Callable;
 
 
 /**
- * Created by krupenghetiya on 03/02/17.
+ * Created by robert on 17/08/03.
  */
-
-public class AAH_CustomViewHolder extends RecyclerView.ViewHolder {
-    private AAH_VideoImage aah_vi;
+public class CustomViewHolder extends RecyclerView.ViewHolder {
+    private VideoImage aah_vi;
     private String imageUrl;
     private String videoUrl;
     private boolean isLooping = true;
     private boolean isPaused = false;
 
 
-    public AAH_CustomViewHolder(View x) {
+    public CustomViewHolder(View x) {
         super(x);
-        aah_vi = (AAH_VideoImage) x.findViewWithTag("aah_vi");
+        aah_vi = (VideoImage) x.findViewWithTag("aah_vi");
     }
 
     public void playVideo() {
@@ -79,7 +78,7 @@ public class AAH_CustomViewHolder extends RecyclerView.ViewHolder {
         this.aah_vi.getCustomVideoView().unmuteVideo();
     }
 
-    public AAH_VideoImage getAah_vi() {
+    public VideoImage getAah_vi() {
         return aah_vi;
     }
 
@@ -97,7 +96,7 @@ public class AAH_CustomViewHolder extends RecyclerView.ViewHolder {
         this.aah_vi.getCustomVideoView().setVisibility(View.GONE);
     }
 
-    public void setAah_vi(AAH_VideoImage aah_vi) {
+    public void setAah_vi(VideoImage aah_vi) {
         this.aah_vi = aah_vi;
     }
 

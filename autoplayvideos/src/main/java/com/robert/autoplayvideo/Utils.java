@@ -1,4 +1,4 @@
-package com.allattentionhere.autoplayvideos;
+package com.robert.autoplayvideo;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,10 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.List;
-
-public class AAH_Utils {
+/**
+ * Created by robert on 17/08/03.
+ */
+public class Utils {
 
     private static SharedPreferences sharedPrefs;
 
