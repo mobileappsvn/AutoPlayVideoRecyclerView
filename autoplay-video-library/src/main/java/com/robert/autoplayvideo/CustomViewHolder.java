@@ -82,7 +82,7 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
         return aah_vi;
     }
 
-    public ImageView getAAH_ImageView() {
+    public ImageView getImageView() {
         return aah_vi.getImageView();
     }
 

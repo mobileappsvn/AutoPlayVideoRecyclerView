@@ -1,139 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
     android:layout_marginTop="8dp"
     android:gravity="center"
     android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
     app:cardCornerRadius="0dp"
-    app:cardElevation="1dp">
+    app:cardElevation="1dp"
+    app:cardPreventCornerOverlap="false">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0.75dp"
-        android:background="@drawable/custom_elevation_card_item"
-        card_view:cardElevation="4dp"
-        card_view:cardPreventCornerOverlap="false">
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/custom_elevation_card_item">
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/fb_item_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="vertical">
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:visibility="visible">
 
-            <FrameLayout
-                android:id="@+id/fb_item_top"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/fb_user_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
                 android:padding="4dp"
-                android:visibility="visible">
-
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/fb_user_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center_vertical"
-                    android:padding="4dp"
-                    android:scaleType="fitCenter"
-                    tools:src="@mipmap/ic_launcher" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginStart="40dp"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
-                    <TextView
-                        android:id="@+id/fb_user_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        android:textStyle="bold"
-                        tools:text="Eneim" />
-
-                    <TextView
-                        android:id="@+id/tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        tools:text="the simple, the best" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
-
-                <com.robert.autoplayvideo.VideoImage
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-                <ImageView
-                    android:id="@+id/img_playback"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_pause"
-                    android:visibility="visible" />
-
-                <ImageView
-                    android:id="@+id/img_vol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|bottom"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/ic_unmute"
-                    android:visibility="gone" />
-            </FrameLayout>
+                android:scaleType="fitCenter"
+                tools:src="@mipmap/ic_launcher" />
 
             <LinearLayout
-                android:id="@+id/fb_item_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:minHeight="40dp"
-                android:orientation="horizontal">
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
+                android:orientation="vertical"
+                android:padding="4dp">
 
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/fb_button_like"
-                    style="@style/Facebook.Button.Feed"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/fb_button_like" />
+                <TextView
+                    android:id="@+id/fb_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold"
+                    tools:text="Eneim" />
 
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/fb_button_comment"
-                    style="@style/Facebook.Button.Feed"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/fb_button_comment" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/fb_button_share"
-                    style="@style/Facebook.Button.Feed"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/fb_button_share" />
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    tools:text="the simple, the best" />
             </LinearLayout>
-        </LinearLayout>
+        </FrameLayout>
 
-        <View
-            android:id="@+id/over_lay"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#cc000000"
-            android:visibility="gone" />
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+            android:layout_height="200dp">
+
+            <com.robert.autoplayvideo.VideoImage
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:id="@+id/img_playback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_pause"
+                android:visibility="visible"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:id="@+id/img_vol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_unmute"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/fb_item_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="40dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/fb_button_like"
+                style="@style/Facebook.Button.Feed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/fb_button_like" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/fb_button_comment"
+                style="@style/Facebook.Button.Feed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/fb_button_comment" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/fb_button_share"
+                style="@style/Facebook.Button.Feed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/fb_button_share" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/over_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cc000000"
+        android:visibility="gone" />
+</android.support.v7.widget.CardView>
