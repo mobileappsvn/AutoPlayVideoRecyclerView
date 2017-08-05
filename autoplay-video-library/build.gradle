@@ -4,20 +4,20 @@ ext {
     bintrayRepo = 'AutoplayVideos'
     bintrayName = 'AutoplayVideos'
 
-    publishedGroupId = 'com.allattentionhere'
+    publishedGroupId = 'com.robert'
     libraryName = 'AutoplayVideos'
     artifact = 'autoplayvideos'
 
-    libraryDescription = 'Android library to autoplay videos'
+    libraryDescription = 'Android library to autoplay video'
 
-    siteUrl = 'https://github.com/Krupen/AutoplayVideos'
-    gitUrl = 'https://github.com/Krupen/AutoplayVideos.git'
+    siteUrl = 'https://github.com/mobileappsvn/AutoPlayVideoRecyclerView'
+    gitUrl = 'https://github.com/mobileappsvn/AutoPlayVideoRecyclerView.git'
 
     libraryVersion = '0.1.3'
 
-    developerId = 'krupen'
-    developerName = 'Krupen Ghetiya'
-    developerEmail = 'krupen.ghetiya@gmail.com'
+    developerId = 'mobileappsvn'
+    developerName = 'Robert Hoang'
+    developerEmail = 'mobile.apps.pro.vn@gmail.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
