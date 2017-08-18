@@ -17,7 +17,7 @@ And it has following features:
 5. Download videos to local storage in background for faster loading.
 
 
-# Demo
+# Demo [Click to image to view on Youtube link]
 [![Watch the video](http://soicau.com.vn/robert/autoplayvideo.png)](https://youtu.be/JaE3loNC3mg)
 # Download
 **Gradle**
