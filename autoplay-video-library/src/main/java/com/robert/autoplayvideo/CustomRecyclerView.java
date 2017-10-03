@@ -26,7 +26,7 @@ import static com.robert.autoplayvideo.Utils.getString;
  */
 public class CustomRecyclerView extends RecyclerView {
 
-    private Activity _act;
+    private Activity activity;
     private boolean playOnlyFirstVideo = false;
     private boolean downloadVideos = false;
     private boolean checkForMp4 = true;
@@ -48,8 +48,8 @@ public class CustomRecyclerView extends RecyclerView {
 
     }
 
-    public void setActivity(Activity _act) {
-        this._act = _act;
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 
     @Override
@@ -101,22 +101,37 @@ public class CustomRecyclerView extends RecyclerView {
                                 if (!foundFirstVideo && rect_parent.contains(rect_child)) {
 //                                    Log.d("trace", i + " foundFirstVideo: " + cvh.getVideoUrl());
                                     foundFirstVideo = true;
-                                    if (getString(_act, cvh.getVideoUrl()) != null && new File(getString(_act, cvh.getVideoUrl())).exists()) {
-                                        ((CustomViewHolder) holder).initVideoView(getString(_act, cvh.getVideoUrl()), _act);
+                                    if (getString(activity, cvh.getVideoUrl()) != null && new File(getString(activity, cvh.getVideoUrl())).exists()) {
+                                        ((CustomViewHolder) holder).initVideoView(getString(activity, cvh.getVideoUrl()), activity);
                                     } else {
-                                        ((CustomViewHolder) holder).initVideoView(cvh.getVideoUrl(), _act);
+                                        ((CustomViewHolder) holder).initVideoView(cvh.getVideoUrl(), activity);
                                     }
                                     if (downloadVideos) {
                                         startDownloadInBackground(cvh.getVideoUrl());
                                     }
                                     Thread t = new Thread() {
                                         public void run() {
-                                            if (!((CustomViewHolder) holder).isPaused())
-                                                ((CustomViewHolder) holder).playVideo();
+                                            try {
+                                                synchronized (this) {
+                                                    wait(500);
+
+                                                    activity.runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            if (!((CustomViewHolder) holder).isPaused())
+                                                                ((CustomViewHolder) holder).playVideo();
+                                                        }
+                                                    });
+
+                                                }
+                                            } catch (InterruptedException e) {
+                                                //e.printStackTrace();
+                                            }
                                         }
                                     };
                                     t.start();
                                     threads.add(t);
+
                                 } else {
 //                                    Log.d("trace", i + " not foundFirstVideo: ");
                                     ((CustomViewHolder) holder).pauseVideo();
@@ -138,20 +153,35 @@ public class CustomRecyclerView extends RecyclerView {
 //                                        Log.d("k9pos", "x: " + location[0] + " | x right: " + (location[0] + cvh.getAah_vi().getWidth()) + " | y: " + location[1] + " | y bottom: " + (location[1] + cvh.getAah_vi().getHeight()));
 //                                Log.d("trace", i + " contains: " + rect_parent.contains(rect_child));
                                 if (rect_parent.contains(rect_child)) {
-                                    if (getString(_act, cvh.getVideoUrl()) != null && new File(getString(_act, cvh.getVideoUrl())).exists()) {
-                                        ((CustomViewHolder) holder).initVideoView(getString(_act, cvh.getVideoUrl()), _act);
+                                    if (getString(activity, cvh.getVideoUrl()) != null && new File(getString(activity, cvh.getVideoUrl())).exists()) {
+                                        ((CustomViewHolder) holder).initVideoView(getString(activity, cvh.getVideoUrl()), activity);
                                     } else {
-                                        ((CustomViewHolder) holder).initVideoView(cvh.getVideoUrl(), _act);
+                                        ((CustomViewHolder) holder).initVideoView(cvh.getVideoUrl(), activity);
                                     }
                                     if (downloadVideos) {
                                         startDownloadInBackground(cvh.getVideoUrl());
                                     }
                                     Thread t = new Thread() {
                                         public void run() {
-                                            if (!((CustomViewHolder) holder).isPaused())
-                                                ((CustomViewHolder) holder).playVideo();
+                                            try {
+                                                synchronized (this) {
+                                                    wait(500);
+
+                                                    activity.runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            if (!((CustomViewHolder) holder).isPaused())
+                                                                ((CustomViewHolder) holder).playVideo();
+                                                        }
+                                                    });
+
+                                                }
+                                            } catch (InterruptedException e) {
+                                                //e.printStackTrace();
+                                            }
                                         }
                                     };
+
                                     t.start();
                                     threads.add(t);
                                 } else {
@@ -187,13 +217,13 @@ public class CustomRecyclerView extends RecyclerView {
 
     public void startDownloadInBackground(String url) {
         /* Starting Download Service */
-        if ((Utils.getString(_act, url) == null || !(new File(getString(_act, url)).exists())) && url != null && !url.equalsIgnoreCase("null")) {
-            Intent intent = new Intent(Intent.ACTION_SYNC, null, _act, DownloadService.class);
+        if ((Utils.getString(activity, url) == null || !(new File(getString(activity, url)).exists())) && url != null && !url.equalsIgnoreCase("null")) {
+            Intent intent = new Intent(Intent.ACTION_SYNC, null, activity, DownloadService.class);
         /* Send optional extras to Download IntentService */
             intent.putExtra("url", url);
             intent.putExtra("path", downloadPath);
             intent.putExtra("requestId", 101);
-            _act.startService(intent);
+            activity.startService(intent);
         }
     }
 
@@ -211,12 +241,12 @@ public class CustomRecyclerView extends RecyclerView {
         urls.clear();
         urls.addAll(hashSet);
         for (int i = 0; i < urls.size(); i++) {
-            if ((Utils.getString(_act, urls.get(i)) == null || !(new File(getString(_act, urls.get(i))).exists())) && urls.get(i) != null && !urls.get(i).equalsIgnoreCase("null")) {
-                Intent intent = new Intent(Intent.ACTION_SYNC, null, _act, DownloadService.class);
+            if ((Utils.getString(activity, urls.get(i)) == null || !(new File(getString(activity, urls.get(i))).exists())) && urls.get(i) != null && !urls.get(i).equalsIgnoreCase("null")) {
+                Intent intent = new Intent(Intent.ACTION_SYNC, null, activity, DownloadService.class);
                 intent.putExtra("url", urls.get(i));
                 intent.putExtra("path", downloadPath);
                 intent.putExtra("requestId", 101);
-                _act.startService(intent);
+                activity.startService(intent);
             }
         }
     }

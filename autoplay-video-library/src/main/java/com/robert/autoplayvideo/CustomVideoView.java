@@ -152,9 +152,9 @@ public class CustomVideoView extends TextureView implements TextureView.SurfaceT
             mMediaPlayer = null;
         }
         try {
-            showThumb.call();
+            if (showThumb != null) showThumb.call();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         super.onDetachedFromWindow();
     }
