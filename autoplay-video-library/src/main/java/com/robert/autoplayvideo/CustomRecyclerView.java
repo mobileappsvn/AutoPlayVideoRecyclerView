@@ -25,7 +25,7 @@ import static com.robert.autoplayvideo.Utils.getString;
  * Created by robert on 17/08/03.
  */
 public class CustomRecyclerView extends RecyclerView {
-
+    private String TAG = "CustomRecyclerView";
     private Activity activity;
     private boolean playOnlyFirstVideo = false;
     private boolean downloadVideos = false;
@@ -75,17 +75,16 @@ public class CustomRecyclerView extends RecyclerView {
     }
 
     public void playAvailableVideos(int newState) {
-        Log.d("k9k9", "playAvailableVideos: ");
-//        Log.d("trace", "playAvailableVideos: ");
+        Log.d(TAG, "playAvailableVideos: ");
         List<Thread> threads = new ArrayList<Thread>();
         if (newState == 0) {
             int firstVisiblePosition = ((LinearLayoutManager) getLayoutManager()).findFirstVisibleItemPosition();
             int lastVisiblePosition = ((LinearLayoutManager) getLayoutManager()).findLastVisibleItemPosition();
-//            Log.d("trace", "firstVisiblePosition: " + firstVisiblePosition + " |lastVisiblePosition: " + lastVisiblePosition);
+            //Log.d(TAG, "firstVisiblePosition: " + firstVisiblePosition + " |lastVisiblePosition: " + lastVisiblePosition);
             if (firstVisiblePosition >= 0) {
                 Rect rect_parent = new Rect();
                 getGlobalVisibleRect(rect_parent);
-//                        Log.d("pos", "recyclerview left: " + rect_parent.left + " | right: " + rect_parent.right + " | top: " + rect_parent.top + " | bottom: " + rect_parent.bottom);
+                //Log.d(TAG, "recyclerview left: " + rect_parent.left + " | right: " + rect_parent.right + " | top: " + rect_parent.top + " | bottom: " + rect_parent.bottom);
                 if (playOnlyFirstVideo) {
                     boolean foundFirstVideo = false;
                     for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
@@ -96,10 +95,10 @@ public class CustomRecyclerView extends RecyclerView {
                                 int[] location = new int[2];
                                 cvh.getAah_vi().getLocationOnScreen(location);
                                 Rect rect_child = new Rect(location[0], location[1], location[0] + cvh.getAah_vi().getWidth(), location[1] + cvh.getAah_vi().getHeight());
-//                                        Log.d("k9pos", "x: " + location[0] + " | x right: " + (location[0] + cvh.getAah_vi().getWidth()) + " | y: " + location[1] + " | y bottom: " + (location[1] + cvh.getAah_vi().getHeight()));
-//                                Log.d("trace", i + " contains: " + rect_parent.contains(rect_child));
+                                 //Log.d(TAG, "x: " + location[0] + " | x right: " + (location[0] + cvh.getAah_vi().getWidth()) + " | y: " + location[1] + " | y bottom: " + (location[1] + cvh.getAah_vi().getHeight()));
+                                //Log.d("trace", i + " contains: " + rect_parent.contains(rect_child));
                                 if (!foundFirstVideo && rect_parent.contains(rect_child)) {
-//                                    Log.d("trace", i + " foundFirstVideo: " + cvh.getVideoUrl());
+                                    //Log.d(TAG, i + " foundFirstVideo: " + cvh.getVideoUrl());
                                     foundFirstVideo = true;
                                     if (getString(activity, cvh.getVideoUrl()) != null && new File(getString(activity, cvh.getVideoUrl())).exists()) {
                                         ((CustomViewHolder) holder).initVideoView(getString(activity, cvh.getVideoUrl()), activity);
@@ -109,6 +108,7 @@ public class CustomRecyclerView extends RecyclerView {
                                     if (downloadVideos) {
                                         startDownloadInBackground(cvh.getVideoUrl());
                                     }
+                                    //Bug fixing for freezing: Only the original thread that created a view hierarchy can touch its views
                                     Thread t = new Thread() {
                                         public void run() {
                                             try {
@@ -133,7 +133,7 @@ public class CustomRecyclerView extends RecyclerView {
                                     threads.add(t);
 
                                 } else {
-//                                    Log.d("trace", i + " not foundFirstVideo: ");
+                                    //Log.d(TAG, i + " not foundFirstVideo: ");
                                     ((CustomViewHolder) holder).pauseVideo();
                                 }
                             }
@@ -150,8 +150,8 @@ public class CustomRecyclerView extends RecyclerView {
                                 int[] location = new int[2];
                                 cvh.getAah_vi().getLocationOnScreen(location);
                                 Rect rect_child = new Rect(location[0], location[1], location[0] + cvh.getAah_vi().getWidth(), location[1] + cvh.getAah_vi().getHeight());
-//                                        Log.d("k9pos", "x: " + location[0] + " | x right: " + (location[0] + cvh.getAah_vi().getWidth()) + " | y: " + location[1] + " | y bottom: " + (location[1] + cvh.getAah_vi().getHeight()));
-//                                Log.d("trace", i + " contains: " + rect_parent.contains(rect_child));
+                                //Log.d(TAG, "x: " + location[0] + " | x right: " + (location[0] + cvh.getAah_vi().getWidth()) + " | y: " + location[1] + " | y bottom: " + (location[1] + cvh.getAah_vi().getHeight()));
+                                //Log.d(TAG, i + " contains: " + rect_parent.contains(rect_child));
                                 if (rect_parent.contains(rect_child)) {
                                     if (getString(activity, cvh.getVideoUrl()) != null && new File(getString(activity, cvh.getVideoUrl())).exists()) {
                                         ((CustomViewHolder) holder).initVideoView(getString(activity, cvh.getVideoUrl()), activity);
@@ -161,6 +161,7 @@ public class CustomRecyclerView extends RecyclerView {
                                     if (downloadVideos) {
                                         startDownloadInBackground(cvh.getVideoUrl());
                                     }
+                                    //Bug fixing for freezing: Only the original thread that created a view hierarchy can touch its views
                                     Thread t = new Thread() {
                                         public void run() {
                                             try {
