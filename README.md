@@ -287,11 +287,6 @@ holder.setLooping(true); //optional - true by default
 # Changelog
 * <a href="/CHANGELOG.txt" target="_blank">Changelog</a>
 
-# Apps by developer
-[![TIAMO](https://lh3.googleusercontent.com/Uw7oLRg-Iub-C6T3fg-CRyC7hV3doQZZd6OOsW__Ntpf_8BScMY8d2HT2BPQlapTGaQ=w300-rw)](https://play.google.com/store/apps/details?id=com.vnm.tiamo)  [![Zap Courier](https://lh3.googleusercontent.com/2bEjpmHNjcqo2FEtTNjETsYu8JeIjfHI7oxiZWUSXqg7ENSfUo6rhkUckIAv3DaFQzM=w300-rw)](https://play.google.com/store/apps/details?id=delivery.zap.courier)
-
-https://play.google.com/store/search?q=TranceLimited.Net&c=apps
-
 # License
 Copyright 2017 Robert Hoang
 
